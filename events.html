@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Chess Club Events</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+
+
+
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>West Karbi Anglong Thong Nokbe Chess Club</title>
+  <link rel="stylesheet" href="css/theme-dark.css" />
+
+
+
+
+
+<style>
+:root {
+  --bg: #0f1115;
+  --text: #f5f7fa;
+  --muted: #a0a8b5;
+  --accent: #ffd166;
+  --card-bg: rgba(255,255,255,0.04);
+  --radius: 14px;
+  --gap: 20px;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+}
+header {
+  text-align: center;
+  padding: 2rem 1rem;
+}
+header h1 {
+  font-size: 2rem;
+  margin-bottom: .5rem;
+}
+header p {
+  color: var(--muted);
+}
+section {
+  max-width: 1100px;
+  margin: auto;
+  padding: 1rem;
+}
+.event-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: var(--gap);
+  margin-top: 1rem;
+}
+.card {
+  background: var(--card-bg);
+  border-radius: var(--radius);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: transform .25s ease, box-shadow .25s ease;
+}
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+}
+.card img {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+}
+.card-body {
+  padding: 1rem;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+.card-body h3 {
+  margin: 0 0 .5rem;
+  font-size: 1.1rem;
+}
+.card-body .date-time {
+  font-size: .9rem;
+  color: var(--accent);
+  margin-bottom: .3rem;
+}
+.card-body .location {
+  font-size: .85rem;
+  color: var(--muted);
+  margin-bottom: .5rem;
+}
+.card-body p {
+  font-size: .85rem;
+  color: var(--muted);
+  flex: 1;
+}
+.tag {
+  display: inline-block;
+  background: var(--accent);
+  color: #000;
+  font-size: .75rem;
+  padding: 2px 8px;
+  border-radius: 999px;
+  margin-top: .5rem;
+  font-weight: 600;
+}
+.btn {
+  display: inline-block;
+  margin-top: .8rem;
+  padding: 6px 12px;
+  background: var(--accent);
+  color: #000;
+  font-size: .8rem;
+  font-weight: 600;
+  border-radius: 6px;
+  text-decoration: none;
+  transition: background .2s ease;
+}
+.btn:hover {
+  background: #ffcd4d;
+}
+</style>
+</head>
+<body>
+
+
+
+    <header class="hero">
+    <div class="hero-inner">
+      <div class="hero-left">
+        <img src="images/logo.png" alt="Club logo" class="club-logo">
+        <div class="hero-text">
+          <h1>West Karbi Anglong Thong Nokbe Chess Club</h1>
+          <p class="sub">Donkamukam, West Karbi Anglong, Assam — 782485</p>
+          <p class="contact">Call: <a href="tel:+917637047059">+91 76370 47059, +91 8638610940, +91 9395386491</a></p>
+        </div>
+      </div>
+
+      <div class="hero-actions">
+        <a class="btn-ghost" href="index.html">Home</a>
+       
+        <a class="btn-ghost" href="gallery.html">Gallery</a>
+        <a class="btn-primary" href="events.html">Events</a>
+      </div>
+    </div>
+
+
+
+
+  </header>
+      <center><h1> Our Chess Tournaments & Events</h1></center>
+   
+  </header>
+<section>
+  <div class="event-grid" id="events"></div>
+</section>
+
+
+<script>
+const events = [
+  {
+    title: "1st Karbi Hills Online Prize Money Blitz Chess Competition, 2025",
+    date: "September 13, 2025",
+    time: "09:00 PM",
+    location: "Lichess.org (Online)",
+    desc: "A fast-paced rapid tournament for all Karbi Hills Peoples. Prizes for top 15 players.",
+    img: "events/1st-Karbi-Hills-Online-Prize-Money-Blitz-Chess-Champ.jpg",
+    pdf: "events/1st-Karbi-Hills-Online-Prize-Money-Blitz-Chess-Champ.pdf",
+    
+  },
+
+{
+    title: "2nd Executive Meeting cum Intra Club One Day Rapid Tournament, 2025",
+    date: "August 24, 2025",
+    time: "09:00 AM",
+    location: "Langsudo L.P. School, Donkamokam, West Karbi Anglong",
+    desc: "One Day Rapid Tournament for All West Karbi Anglong Peoples. Prizes for top 5 players.",
+    img: "events/langsudo1.jpg",
+    pdf: "events/banner2.jpg",
+    
+  },
+
+
+
+  {
+    title: "Formation of West Karbi Anglong Chess Club, 2025",
+    date: "July 13, 2025",
+    time: "10:00 AM",
+    location: "Rangsina Senior Secondary School, Donkamokam,s West Karbi Anglong",
+    desc: "Open to all players of West Karbi Anglong wiht Cash prizes for winners.",
+    img: "events/formation.jpg",
+    pdf: "events/banner1.jpg",
+   
+  }
+];
+
+function renderEvents(events) {
+  const container = document.getElementById("events");
+  container.innerHTML = "";
+  events.forEach(ev => {
+    const card = document.createElement("div");
+    card.className = "card";
+    card.innerHTML = `
+      <img src="${ev.img}" alt="${ev.title}">
+      <div class="card-body">
+        <h3>${ev.title}</h3>
+        <div class="date-time">${ev.date} — ${ev.time}</div>
+        <div class="location">${ev.location}</div>
+        <p>${ev.desc}</p>
+        <a class="btn" href="${ev.pdf}" target="_blank">More Details</a>
+        
+      </div>
+    `;
+    container.appendChild(card);
+  });
+}
+
+renderEvents(events);
+</script>
+
+</body>
+ <footer class="site-footer">
+    <div class="container small">
+      <p>&copy; <span id="year"></span> West Karbi Anglong Thong Nokbe Chess Club — Donkamukam</p>
+    </div>
+  </footer>
+</html>
